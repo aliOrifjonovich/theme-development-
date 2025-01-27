@@ -15,18 +15,18 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Welcome Alisher to our online store",
+            "heading": "<strong>Welcome to our online store</strong>",
             "heading_size": "h0"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "More Products",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "shopify://collections/all",
+            "button_label_2": "Our Collections",
+            "button_link_2": "shopify://collections",
             "button_style_secondary_2": false
           }
         }
@@ -36,7 +36,8 @@
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/bannercar.png",
+        "image_overlay_opacity": 50,
         "image_height": "medium",
         "desktop_content_position": "bottom-center",
         "show_text_box": false,
