@@ -1,0 +1,168 @@
+{{ 'glider.min.css' | asset_url | stylesheet_tag }}
+<style>
+  .page-width {
+    position: relative;
+  }
+  .card__carousel {
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .card__carousel:hover .card__image {
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+  .card__image {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    aspect-ratio: 1;
+  }
+  .glider {
+    padding-bottom: 20px;
+  }
+  .glider-track {
+    gap: 16px;
+  }
+  .page-width .prev,
+  .page-width .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-width .prev {
+    left: 0;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .page-width .next {
+    right: 0;
+  }
+
+  @media (max-width: 768px) {
+    .page-width .prev,
+    .page-width .next {
+      display: none;
+    }
+  }
+</style>
+
+<h2 style="text-align: center; margin-bottom: 20px;">Carousel</h2>
+
+<div class="page-width" id="{{ section.id }}">
+  <div class="glider">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'product' -%}
+        <a
+          href="{{ block.settings.product.url }}"
+          class="card__carousel"
+        >
+          {{ block.settings.product.featured_image | image_url: width: 200 | image_tag: class: 'card__image' }}
+
+          <p style="font-size: 16px; font-weight: bold; margin-bottom: 10px; text-align: center; color: black;">
+            {{ block.settings.title | default: block.settings.product.title }}
+          </p>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <button
+    class="prev"
+    aria-label="Previous slide"
+  >
+    {{ 'icon-arrow.svg' | inline_asset_content }}
+  </button>
+  <button
+    class="next"
+    aria-label="Next slide"
+  >
+    {{ 'icon-arrow.svg' | inline_asset_content }}
+  </button>
+</div>
+
+<script
+  src="{{ 'glider.min.js' | asset_url }}"
+  onload="document.dispatchEvent(new Event('glider:loaded'));"
+  async
+></script>
+
+<script>
+  function initCarousel() {
+    new Glider(document.querySelector('.glider'), {
+      slidesToShow: 1,
+      draggable: true,
+      arrows: {
+        prev: '#{{ section.id }} .prev',
+        next: '#{{ section.id }} .next',
+      },
+      responsive: [
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: {{ section.settings.number_slider_desktop }},
+          }
+        }
+      ]
+    });
+  }
+  document.addEventListener('glider:loaded', () => {
+    initCarousel();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Carousel",
+  "settings": [
+    {
+      "type": "number",
+      "id": "number_slider_desktop",
+      "label": "Number of Slider (Desktop)",
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "label": "Product",
+          "id": "product"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Optional."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
