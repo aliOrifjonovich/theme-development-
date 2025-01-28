@@ -76,10 +76,69 @@
         "padding_top": 44,
         "padding_bottom": 92
       }
+    },
+    "carousel_e8mKkj": {
+      "type": "carousel",
+      "blocks": {
+        "product_KzXGPz": {
+          "type": "product",
+          "settings": {
+            "product": "adidas-classic-backpack",
+            "title": "Adidas bag"
+          }
+        },
+        "product_F8Ufy3": {
+          "type": "product",
+          "settings": {
+            "product": "converse-chuck-taylor-all-star-ii-hi",
+            "title": "Converse"
+          }
+        },
+        "product_RiUiqH": {
+          "type": "product",
+          "settings": {
+            "product": "adidas-classic-backpack-legend-ink-multicolour",
+            "title": "Adidas bag"
+          }
+        },
+        "product_YnVcCU": {
+          "type": "product",
+          "settings": {
+            "product": "dr-martens-1460z-dmc-8-eye-boot-cherry-smooth",
+            "title": "DR martens"
+          }
+        },
+        "product_dDCJgW": {
+          "type": "product",
+          "settings": {
+            "product": "nike-crackle-print-tb-tee",
+            "title": "Nike"
+          }
+        },
+        "product_fnyUch": {
+          "type": "product",
+          "settings": {
+            "product": "flex-fit-mini-ottoman-black",
+            "title": "Flex Fit"
+          }
+        }
+      },
+      "block_order": [
+        "product_KzXGPz",
+        "product_F8Ufy3",
+        "product_RiUiqH",
+        "product_YnVcCU",
+        "product_dDCJgW",
+        "product_fnyUch"
+      ],
+      "settings": {
+        "number_slider_desktop": 3
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "carousel_e8mKkj"
   ]
 }
