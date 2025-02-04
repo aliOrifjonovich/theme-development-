@@ -63,6 +63,13 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "app_development_test_star_rating_YPNTrL": {
+          "type": "shopify://apps/app-development-test/blocks/star_rating/38ef7a5f-b625-44c0-bc65-e61ce04a9ac8",
+          "settings": {
+            "product": "{{product}}",
+            "colour": "#000000"
+          }
         }
       },
       "block_order": [
@@ -74,7 +81,8 @@
         "buy_buttons",
         "description",
         "collapsible_tab_z4CjB4",
-        "share"
+        "share",
+        "app_development_test_star_rating_YPNTrL"
       ],
       "settings": {
         "enable_sticky_info": true,
