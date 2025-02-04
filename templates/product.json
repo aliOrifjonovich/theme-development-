@@ -12,6 +12,16 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "app_development_test_star_rating_YPNTrL": {
+          "type": "shopify://apps/app-development-test/blocks/star_rating/38ef7a5f-b625-44c0-bc65-e61ce04a9ac8",
+          "settings": {
+            "product": "{{product}}",
+            "button_text": "Favourites",
+            "icon_color": "#000000",
+            "text_color": "#333333",
+            "active_color": "#ff0000"
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -63,16 +73,10 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "app_development_test_star_rating_YPNTrL": {
-          "type": "shopify://apps/app-development-test/blocks/star_rating/38ef7a5f-b625-44c0-bc65-e61ce04a9ac8",
-          "settings": {
-            "product": "{{product}}",
-            "colour": "#000000"
-          }
         }
       },
       "block_order": [
+        "app_development_test_star_rating_YPNTrL",
         "vendor",
         "title",
         "price",
@@ -81,8 +85,7 @@
         "buy_buttons",
         "description",
         "collapsible_tab_z4CjB4",
-        "share",
-        "app_development_test_star_rating_YPNTrL"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
